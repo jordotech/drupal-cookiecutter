@@ -47,7 +47,7 @@ $ docker exec -it containername bash
 Connect to the mysql container from a php script:
 use `mysql` instead of `localhost`
 
-Install drupal:
+## Install Drupal
 ```sh
 ./scripts/install.sh
 ```

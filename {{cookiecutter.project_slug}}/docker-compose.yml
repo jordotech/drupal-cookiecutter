@@ -1,0 +1,32 @@
+front:
+  build: .
+  ports:
+    - "80:80"
+    - "443:443"
+  links:
+    - mysql:mysql
+    - memcached:memcached
+    - solr:solr
+  volumes:
+    - ./www:/var/www
+    - ./sites:/etc/nginx/conf.d
+
+mysql:
+  image: mysql
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: {{ cookiecutter.project_slug }}
+
+memcached:
+  image: memcached
+  ports:
+    - "11211:11211"
+
+solr:
+  image: mxr576/apachesolr-5.x-drupal-docker
+  ports: 
+    - "8983:8983"
+  environment:
+    SOLR_MEM_SIZE: 1g

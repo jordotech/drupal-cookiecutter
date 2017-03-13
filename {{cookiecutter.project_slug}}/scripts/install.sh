@@ -8,7 +8,7 @@ docker exec -it {{cookiecutter.project_slug}}_front_1 /bin/bash -c "cd /var/www/
 docker exec -it {{cookiecutter.project_slug}}_front_1 /bin/bash -c "cd /var/www/{{cookiecutter.project_slug}}/web \
     && /root/.composer/vendor/bin/drush upwd admin --password=admin"
 docker exec -it {{cookiecutter.project_slug}}_front_1 /bin/bash -c "cd /var/www/{{cookiecutter.project_slug}} \
-    && composer require drupal/admin_toolbar:~8 drupal/pathauto:~8 drupal/redirect:~8"
+    && composer require drupal/admin_toolbar drupal/pathauto drupal/redirect"
 docker exec -it {{cookiecutter.project_slug}}_front_1 /bin/bash -c "cd /var/www/{{cookiecutter.project_slug}}/web \
     && /root/.composer/vendor/bin/drush en admin_toolbar pathauto redirect -y"
 docker exec -it {{cookiecutter.project_slug}}_front_1 /bin/bash -c "cd /var/www/{{cookiecutter.project_slug}}/web \

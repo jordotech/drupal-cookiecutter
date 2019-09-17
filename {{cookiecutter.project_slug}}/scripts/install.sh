@@ -1,6 +1,7 @@
 #!/bin/sh
 docker exec -it {{cookiecutter.project_slug}}_front_1 /bin/bash -c "cd /var/www \
-    && git clone -b 8.x https://github.com/Contraric/drupal-project.git {{cookiecutter.project_slug}}"
+    && git clone -b 8.x https://github.com/drupal-composer/drupal-project.git {{cookiecutter.project_slug}}"
+docker exec -it {{cookiecutter.project_slug}}_front_1 /bin/bash -c "composer self-update"
 docker exec -it {{cookiecutter.project_slug}}_front_1 /bin/bash -c "cd /var/www \
     && cd {{cookiecutter.project_slug}} && composer install"
 docker exec -it {{cookiecutter.project_slug}}_front_1 /bin/bash -c "cd /var/www/{{cookiecutter.project_slug}}/web \
